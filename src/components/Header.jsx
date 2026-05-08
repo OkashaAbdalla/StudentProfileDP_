@@ -2,7 +2,7 @@ function Header() {
   return (
     <header className="header">
       <h1>Student Profile Directory</h1>
-      <p>Task 1: Component structure scaffold</p>
+      <p>Discover student profiles, tracks, and current learning status.</p>
     </header>
   );
 }

@@ -1,11 +1,22 @@
 function ProfileCard({ student, onToggleActive }) {
+  const statusText = student.isActive ? 'Active' : 'Inactive';
+  const statusClassName = student.isActive ? 'status active' : 'status inactive';
+
   return (
     <article className="profile-card">
       <h3>{student.name}</h3>
-      <p>Track: {student.track}</p>
-      <p>Bio: {student.bio}</p>
-      <p>Skill Level: {student.skillLevel}</p>
-      {student.isActive ? <p>Status: Active</p> : <p>Status: Inactive</p>}
+      <p>
+        <span className="label">Track:</span> {student.track}
+      </p>
+      <p>
+        <span className="label">Bio:</span> {student.bio}
+      </p>
+      <p>
+        <span className="label">Skill Level:</span> {student.skillLevel}
+      </p>
+      <p className={statusClassName}>
+        <span className="label">Status:</span> {statusText}
+      </p>
       <button type="button" onClick={() => onToggleActive(student.id)}>
         {student.isActive ? 'Deactivate' : 'Activate'}
       </button>
