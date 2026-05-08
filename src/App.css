@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
+  background-color: #f4f6fb;
+  color: #1f2937;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  padding: 2rem 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.header,
+.profile-list,
+.footer {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1rem 1.25rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header h1,
+.profile-list h2 {
+  margin: 0 0 0.5rem;
+}
+
+.header p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.profile-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 0.75rem;
+}
+
+.profile-card h3 {
+  margin-top: 0;
+}
+
+.profile-card button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.profile-card button:hover {
+  background-color: #1d4ed8;
+}
+
+.footer {
+  text-align: center;
+  font-weight: 600;
+}
+
+.app {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.profile-card p {
+  margin: 0.35rem 0;
+}
+
+.profile-list {
+  display: block;
+}
+
+.footer {
+  color: #374151;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 1rem 0.75rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* keep body fill behavior */
+body {
+  min-height: 100vh;
+  margin: 0;
 }
