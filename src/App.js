@@ -57,6 +57,7 @@ const initialStudents = [
 
 function App() {
   const [students, setStudents] = useState(initialStudents);
+  const activeStudents = students.filter((student) => student.isActive).length;
 
   function toggleActive(id) {
     setStudents((prevStudents) =>
@@ -72,7 +73,7 @@ function App() {
     <main className="app">
       <Header />
       <ProfileList students={students} onToggleActive={toggleActive} />
-      <Footer totalStudents={students.length} />
+      <Footer totalStudents={students.length} activeStudents={activeStudents} />
     </main>
   );
 }

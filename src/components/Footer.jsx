@@ -1,5 +1,9 @@
-function Footer() {
-  return <footer className="footer">Student Directory - Assignment in progress</footer>;
+function Footer({ totalStudents, activeStudents }) {
+  return (
+    <footer className="footer">
+      Total students: {totalStudents} | Active students: {activeStudents}
+    </footer>
+  );
 }
 
 export default Footer;
