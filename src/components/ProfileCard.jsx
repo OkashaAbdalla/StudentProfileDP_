@@ -5,7 +5,7 @@ function ProfileCard({ student }) {
       <p>Track: {student.track}</p>
       <p>Bio: {student.bio}</p>
       <p>Skill Level: {student.skillLevel}</p>
-      <p>Status: {String(student.isActive)}</p>
+      {student.isActive ? <p>Status: Active</p> : <p>Status: Inactive</p>}
       <button type="button">Activate / Deactivate</button>
     </article>
   );
