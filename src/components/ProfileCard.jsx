@@ -1,11 +1,11 @@
-function ProfileCard() {
+function ProfileCard({ student }) {
   return (
     <article className="profile-card">
-      <h3>Student Name</h3>
-      <p>Track: Placeholder</p>
-      <p>Bio: Placeholder</p>
-      <p>Skill Level: Placeholder</p>
-      <p>Status: Placeholder</p>
+      <h3>{student.name}</h3>
+      <p>Track: {student.track}</p>
+      <p>Bio: {student.bio}</p>
+      <p>Skill Level: {student.skillLevel}</p>
+      <p>Status: {String(student.isActive)}</p>
       <button type="button">Activate / Deactivate</button>
     </article>
   );
