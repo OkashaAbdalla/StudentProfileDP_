@@ -18,7 +18,8 @@ function ProfileCard({ student, onToggleActive }) {
         <span className="label">Skill Level:</span> {student.skillLevel}
       </p>
       <p className={statusClassName}>
-        <span className="label">Status:</span> {statusText}
+        <span className="label">Status:</span>
+        <span className="status-badge">{statusText}</span>
       </p>
       <button type="button" onClick={() => onToggleActive(student.id)}>
         {isActive ? 'Deactivate' : 'Activate'}
