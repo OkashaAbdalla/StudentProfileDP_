@@ -1,5 +1,6 @@
 import ProfileCard from './ProfileCard';
 
+// Renders all student cards from the students array.
 function ProfileList({ students, onToggleActive }) {
   return (
     <section className="profile-list">

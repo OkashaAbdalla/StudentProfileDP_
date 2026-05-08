@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ProfileList from './components/ProfileList';
 import Footer from './components/Footer';
 
+// Initial dataset used to render student profile cards.
 const initialStudents = [
   {
     id: 1,
@@ -57,13 +58,16 @@ const initialStudents = [
 
 function App() {
   const [students, setStudents] = useState(initialStudents);
-  const activeStudents = students.filter((student) => student.isActive).length;
+  const activeStudents = students.filter(
+    (student) => student.isActive === true
+  ).length;
 
+  // Toggle one student by id using an immutable state update.
   function toggleActive(id) {
     setStudents((prevStudents) =>
       prevStudents.map((student) =>
         student.id === id
-          ? { ...student, isActive: !student.isActive }
+          ? { ...student, isActive: !(student.isActive === true) }
           : student
       )
     );
@@ -72,7 +76,11 @@ function App() {
   return (
     <main className="app">
       <Header />
-      <ProfileList students={students} onToggleActive={toggleActive} />
+      <section className="directory-shell">
+        <div className="directory-content">
+          <ProfileList students={students} onToggleActive={toggleActive} />
+        </div>
+      </section>
       <Footer totalStudents={students.length} activeStudents={activeStudents} />
     </main>
   );

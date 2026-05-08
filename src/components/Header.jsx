@@ -1,3 +1,4 @@
+// Top banner that introduces the directory.
 function Header() {
   return (
     <header className="header">

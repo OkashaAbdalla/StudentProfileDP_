@@ -1,3 +1,4 @@
+// Footer summary showing current directory counts.
 function Footer({ totalStudents, activeStudents }) {
   return (
     <footer className="footer">

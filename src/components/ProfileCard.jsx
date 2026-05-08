@@ -1,6 +1,9 @@
+// Displays one student profile and forwards toggle actions.
 function ProfileCard({ student, onToggleActive }) {
-  const statusText = student.isActive ? 'Active' : 'Inactive';
-  const statusClassName = student.isActive ? 'status active' : 'status inactive';
+  // Derived values keep JSX clean and readable.
+  const isActive = student.isActive === true;
+  const statusText = isActive ? 'Active' : 'Inactive';
+  const statusClassName = isActive ? 'status active' : 'status inactive';
 
   return (
     <article className="profile-card">
@@ -18,7 +21,7 @@ function ProfileCard({ student, onToggleActive }) {
         <span className="label">Status:</span> {statusText}
       </p>
       <button type="button" onClick={() => onToggleActive(student.id)}>
-        {student.isActive ? 'Deactivate' : 'Activate'}
+        {isActive ? 'Deactivate' : 'Activate'}
       </button>
     </article>
   );

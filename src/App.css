@@ -1,20 +1,42 @@
+/* Page-level layout container */
 .app {
   min-height: 100vh;
   background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
   color: #111827;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  padding: 2.5rem 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-.header,
-.profile-list,
-.footer {
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.directory-shell {
   width: min(960px, 100%);
   margin: 0 auto;
   background-color: #ffffff;
-  border-radius: 14px;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  min-height: 100vh;
+  padding: 6.4rem 0 3.9rem;
+  overflow: hidden;
+}
+
+/* Header fixed to viewport top */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: min(960px, 100%);
+  margin: 0 auto;
+  z-index: 50;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 0;
+  border-radius: 0;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   padding: 1.25rem 1.5rem;
 }
@@ -28,6 +50,10 @@
 .header p {
   margin: 0.6rem 0 0;
   color: #475569;
+}
+
+.directory-content {
+  padding: 1.1rem 1.5rem 1.25rem;
 }
 
 .profile-list-header {
@@ -45,6 +71,7 @@
   font-size: 0.95rem;
 }
 
+/* Responsive grid for profile cards */
 .profile-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -73,6 +100,31 @@
   color: #1e3a8a;
 }
 
+.profile-card p {
+  margin: 0.35rem 0;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+.label {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.status {
+  margin-top: 0.45rem;
+  font-weight: 600;
+}
+
+/* Status colors provide quick visual feedback */
+.status.active {
+  color: #166534;
+}
+
+.status.inactive {
+  color: #9a3412;
+}
+
 .profile-card button {
   background-color: #1d4ed8;
   color: #ffffff;
@@ -95,6 +147,19 @@
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: min(960px, 100%);
+  margin: 0 auto;
+  z-index: 50;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-bottom: 0;
+  border-radius: 0;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   text-align: center;
   font-weight: 600;
   color: #334155;
@@ -104,54 +169,31 @@
   flex-wrap: wrap;
 }
 
-.app {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-.profile-card p {
-  margin: 0.35rem 0;
-  line-height: 1.45;
-  color: #1f2937;
-}
-
-.label {
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.status {
-  margin-top: 0.45rem;
-  font-weight: 600;
-}
-
-.status.active {
-  color: #166534;
-}
-
-.status.inactive {
-  color: #9a3412;
+body {
+  min-height: 100vh;
+  margin: 0;
 }
 
 @media (max-width: 640px) {
   .app {
-    padding: 1rem 0.75rem 1.25rem;
+    padding: 0 0.75rem;
   }
 
-  .header,
-  .profile-list,
-  .footer {
+  .header {
+    width: 100%;
     padding: 1rem;
   }
-}
 
-/* keep body fill behavior */
-body {
-  min-height: 100vh;
-  margin: 0;
+  .footer {
+    width: 100%;
+  }
+
+  .directory-content {
+    padding: 1rem;
+  }
+
+  .directory-shell {
+    padding-top: 5.95rem;
+    padding-bottom: 3.8rem;
+  }
 }
