@@ -56,12 +56,22 @@ const initialStudents = [
 ];
 
 function App() {
-  const [students] = useState(initialStudents);
+  const [students, setStudents] = useState(initialStudents);
+
+  function toggleActive(id) {
+    setStudents((prevStudents) =>
+      prevStudents.map((student) =>
+        student.id === id
+          ? { ...student, isActive: !student.isActive }
+          : student
+      )
+    );
+  }
 
   return (
     <main className="app">
       <Header />
-      <ProfileList students={students} />
+      <ProfileList students={students} onToggleActive={toggleActive} />
       <Footer totalStudents={students.length} />
     </main>
   );

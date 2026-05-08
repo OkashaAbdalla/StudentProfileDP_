@@ -1,4 +1,4 @@
-function ProfileCard({ student }) {
+function ProfileCard({ student, onToggleActive }) {
   return (
     <article className="profile-card">
       <h3>{student.name}</h3>
@@ -6,7 +6,9 @@ function ProfileCard({ student }) {
       <p>Bio: {student.bio}</p>
       <p>Skill Level: {student.skillLevel}</p>
       {student.isActive ? <p>Status: Active</p> : <p>Status: Inactive</p>}
-      <button type="button">Activate / Deactivate</button>
+      <button type="button" onClick={() => onToggleActive(student.id)}>
+        {student.isActive ? 'Deactivate' : 'Activate'}
+      </button>
     </article>
   );
 }
